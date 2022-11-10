@@ -17,4 +17,8 @@ defmodule LiliWeb.UserView do
       email: user.email
     }
   end
+  
+  def render("400.json", %{changeset: changeset}) do
+    Ecto.Changeset.traverse_errors(changeset, &translate_error/1) 
+  end
 end

@@ -6,11 +6,16 @@ defmodule LiliWeb.UserController do
   
   def create(conn, params)
   def create(conn, %{"user" => user_params}) do
-    with {:ok, %User{} = user} <- Account.register_user(user_params) do
-      conn
-      |> put_status(:created)
-      |> put_resp_header("location", Routes.user_path(conn, :show, user))
-      |> render("show.json", user: user)
+    case Account.register_user(user_params) do
+      {:ok, %User{} = user} ->
+        conn
+        |> put_status(:created)
+        |> put_resp_header("location", Routes.user_path(conn, :show, user))
+        |> render("show.json", user: user)
+      {:error, %Ecto.Changeset{} = changeset} ->
+        conn
+        |> put_status(:bad_request)
+        |> render("400.json", changeset: changeset)
     end
   end
   
