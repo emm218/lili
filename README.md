@@ -24,10 +24,12 @@ more traditional social networks.
 ### Instance Level Follows
 
 Pleroma's bubble feature allows the admins of an instance to curate a list of
-other recommended instances for users to follow. This is useful, but if an
-individual user decides that these instances aren't right for them, they have
-to choose between the entire federated timeline or only seeing their follows or
-their own instance. Instead, I want to give 
+recommended instances which their users can view as a separate timeline. This
+is useful, but if an individual user decides that these instances aren't right
+for them, they have to choose between the entire federated timeline or only
+seeing their follows or their own instance. Instead I want to give each user
+the ability to follow whole instances to add all their users' posts to a
+timeline
 
 ### 🌐 Groups
 
