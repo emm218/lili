@@ -7,6 +7,9 @@ defmodule LiliWeb.Router do
 
   scope "/api", LiliWeb do
     pipe_through :api
+
+    post "/users/register", UserController, :create
+    get "/users/:id", UserController, :show
   end
 
   # Enables the Swoosh mailbox preview in development.
