@@ -9,7 +9,7 @@ defmodule LiliWeb.UserSessionController do
     %{"username" => username, "password" => password} = user_params
 
     if user = Account.get_user_by_username_and_password(username, password) do
-      UserAuth.login_user(conn, user, user_params)
+      UserAuth.login_user(conn, user)
     else
       conn
       |> put_status(:unauthorized)

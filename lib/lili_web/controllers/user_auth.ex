@@ -9,11 +9,11 @@ defmodule LiliWeb.UserAuth do
   Logs a user in
 
   """
-  def login_user(conn, user, params \\ %{}) do
+  def login_user(conn, user) do
     token = Account.generate_user_session_token(user)
     conn
     |> put_status(:ok)
-    |> render("token.json", token: token)
+    |> render(LiliWeb.UserSessionView, "token.json", token: token)
   end
 
   @doc """
