@@ -2,11 +2,13 @@ defmodule Lili.Account do
   @moduledoc """
   The Account context.
   """
+  require Logger
 
   import Ecto.Query, warn: false
   alias Lili.Repo
 
   alias Lili.Account.User
+  alias Lili.Account.UserToken
 
   ## Database getters
 
@@ -107,5 +109,25 @@ defmodule Lili.Account do
   """
   def change_user_password(user, attrs \\ %{}) do
     User.password_changeset(user, attrs, hash_password: false)
+  end
+
+  ## Session
+  
+  @doc """
+  Generates a session token
+  """
+  def generate_user_session_token(user) do
+    {token, user_token} = UserToken.build_token(user, "session")
+    Logger.info user_token
+    Repo.insert!(user_token)
+    token
+  end
+
+  @doc """
+  Deletes (revokes) the given session token
+  """
+  def delete_user_session_token(token) do
+    Repo.delete_all(UserToken.token_and_context_query(token, "session"))
+    :ok
   end
 end

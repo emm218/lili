@@ -9,6 +9,7 @@ defmodule LiliWeb.Router do
     pipe_through :api
 
     post "/users/register", UserController, :create
+    post "/users/login", UserSessionController, :create
     get "/users/:id", UserController, :show
   end
 

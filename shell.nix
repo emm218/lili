@@ -2,13 +2,12 @@
 
 with pkgs;
 let
-  elixir = beam.packages.erlangR24.elixir_1_12;
+  elixir = elixir_1_14;
 in
 mkShell {
   buildInputs = [ elixir ];
 
   shellHook = ''
-    mix local.hex
-    mix archive.install hex phx_new 1.6.15
+    mix local.hex --if-missing
   '';
 }
