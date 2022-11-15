@@ -7,7 +7,7 @@
     <meta name="generator" content="ExDoc v0.29.0">
     <meta name="project" content="Lili v0.1.0">
 
-    <title>LiliWeb.Router — Lili v0.1.0</title>
+    <title>Lili.Account.UserToken — Lili v0.1.0</title>
     <link rel="stylesheet" href="dist/html-elixir-2YOS5DIE.css" />
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
@@ -95,12 +95,12 @@ Lili
 </button>
 
 
-    <a href="https://github.com/emm218/lili/blob/main/lib/lili_web/router.ex#L1" title="View Source" class="view-source" rel="help">
+    <a href="https://github.com/emm218/lili/blob/main/lib/lili/account/user_token.ex#L1" title="View Source" class="view-source" rel="help">
       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
       <span class="sr-only">View Source</span>
     </a>
 
-  <span translate="no">LiliWeb.Router</span> 
+  <span translate="no">Lili.Account.UserToken</span> 
   <small class="app-vsn" translate="no">(Lili v0.1.0)</small>
 
 </h1>
@@ -123,30 +123,43 @@ Lili
 
       <div class="summary-row">
         <div class="summary-signature">
-          <a href="#api/2" translate="no">api(conn, _)</a>
+          <a href="#build_token/2" translate="no">build_token(user, context)</a>
 
         </div>
+
+          <div class="summary-synopsis"><p>Builds a URL base64 encoded token with a hashed counterpart. The hashed
+version should be persisted in the database and the unhashed version should
+be given to the client.</p></div>
 
       </div>
 
       <div class="summary-row">
         <div class="summary-signature">
-          <a href="#call/2" translate="no">call(conn, opts)</a>
+          <a href="#token_and_context_query/2" translate="no">token_and_context_query(token, context)</a>
 
         </div>
 
-          <div class="summary-synopsis"><p>Callback invoked by Plug on every request.</p></div>
+          <div class="summary-synopsis"><p>Returns the given token with the given context.</p></div>
 
       </div>
 
       <div class="summary-row">
         <div class="summary-signature">
-          <a href="#init/1" translate="no">init(opts)</a>
+          <a href="#user_and_contexts_query/2" translate="no">user_and_contexts_query(user, contexts)</a>
 
         </div>
 
-          <div class="summary-synopsis"><p>Callback required by Plug that initializes the router
-for serving web requests.</p></div>
+          <div class="summary-synopsis"><p>Gets all tokens for the given user for the given contexts.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#verify_token_query/2" translate="no">verify_token_query(token, context)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Checks if a token is valid base64 and returns its lookup query.</p></div>
 
       </div>
 
@@ -164,16 +177,16 @@ for serving web requests.</p></div>
 Functions
     </h1>
     <div class="functions-list">
-<section class="detail" id="api/2">
+<section class="detail" id="build_token/2">
 
   <div class="detail-header">
-    <a href="#api/2" class="detail-link" title="Link to this function">
+    <a href="#build_token/2" class="detail-link" title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">api(conn, _)</h1>
+    <h1 class="signature" translate="no">build_token(user, context)</h1>
 
-      <a href="https://github.com/emm218/lili/blob/main/lib/lili_web/router.ex#L4" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account/user_token.ex#L28" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -183,19 +196,21 @@ Functions
 
   <section class="docstring">
 
-
+<p>Builds a URL base64 encoded token with a hashed counterpart. The hashed
+version should be persisted in the database and the unhashed version should
+be given to the client.</p>
   </section>
 </section>
-<section class="detail" id="call/2">
+<section class="detail" id="token_and_context_query/2">
 
   <div class="detail-header">
-    <a href="#call/2" class="detail-link" title="Link to this function">
+    <a href="#token_and_context_query/2" class="detail-link" title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">call(conn, opts)</h1>
+    <h1 class="signature" translate="no">token_and_context_query(token, context)</h1>
 
-      <a href="https://github.com/emm218/lili/blob/main/lib/lili_web/router.ex#L2" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account/user_token.ex#L70" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -205,19 +220,19 @@ Functions
 
   <section class="docstring">
 
-<p>Callback invoked by Plug on every request.</p>
+<p>Returns the given token with the given context.</p>
   </section>
 </section>
-<section class="detail" id="init/1">
+<section class="detail" id="user_and_contexts_query/2">
 
   <div class="detail-header">
-    <a href="#init/1" class="detail-link" title="Link to this function">
+    <a href="#user_and_contexts_query/2" class="detail-link" title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">init(opts)</h1>
+    <h1 class="signature" translate="no">user_and_contexts_query(user, contexts)</h1>
 
-      <a href="https://github.com/emm218/lili/blob/main/lib/lili_web/router.ex#L2" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account/user_token.ex#L77" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -227,8 +242,29 @@ Functions
 
   <section class="docstring">
 
-<p>Callback required by Plug that initializes the router
-for serving web requests.</p>
+<p>Gets all tokens for the given user for the given contexts.</p>
+  </section>
+</section>
+<section class="detail" id="verify_token_query/2">
+
+  <div class="detail-header">
+    <a href="#verify_token_query/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">verify_token_query(token, context)</h1>
+
+      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account/user_token.ex#L43" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Checks if a token is valid base64 and returns its lookup query.</p>
   </section>
 </section>
 

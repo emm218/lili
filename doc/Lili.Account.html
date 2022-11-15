@@ -12,7 +12,7 @@
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-X7YVL3G2.js"></script>
-    <script src="dist/sidebar_items-0CB01DBD.js"></script>
+    <script src="dist/sidebar_items-38CE4E2D.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -137,6 +137,26 @@ Lili
 
       <div class="summary-row">
         <div class="summary-signature">
+          <a href="#delete_user_session_token/1" translate="no">delete_user_session_token(token)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Deletes (revokes) the given session token</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#generate_user_session_token/1" translate="no">generate_user_session_token(user)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Generates a session token</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
           <a href="#get_user!/1" translate="no">get_user!(id)</a>
 
         </div>
@@ -210,7 +230,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">change_user_password(user, attrs \\ %{})</h1>
 
-      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account.ex#L108" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account.ex#L110" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -226,8 +246,52 @@ Functions
   </a>
   Examples
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">change_user_password</span><span class="p" data-group-id="5806412742-1">(</span><span class="n">user</span><span class="p" data-group-id="5806412742-1">)</span><span class="w">
-</span><span class="p" data-group-id="5806412742-2">%</span><span class="nc" data-group-id="5806412742-2">Ecto.Changeset</span><span class="p" data-group-id="5806412742-2">{</span><span class="ss">data</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="5806412742-3">%</span><span class="nc" data-group-id="5806412742-3">User</span><span class="p" data-group-id="5806412742-3">{</span><span class="p" data-group-id="5806412742-3">}</span><span class="p" data-group-id="5806412742-2">}</span></code></pre>
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">change_user_password</span><span class="p" data-group-id="8733752283-1">(</span><span class="n">user</span><span class="p" data-group-id="8733752283-1">)</span><span class="w">
+</span><span class="p" data-group-id="8733752283-2">%</span><span class="nc" data-group-id="8733752283-2">Ecto.Changeset</span><span class="p" data-group-id="8733752283-2">{</span><span class="ss">data</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8733752283-3">%</span><span class="nc" data-group-id="8733752283-3">User</span><span class="p" data-group-id="8733752283-3">{</span><span class="p" data-group-id="8733752283-3">}</span><span class="p" data-group-id="8733752283-2">}</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="delete_user_session_token/1">
+
+  <div class="detail-header">
+    <a href="#delete_user_session_token/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">delete_user_session_token(token)</h1>
+
+      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account.ex#L129" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Deletes (revokes) the given session token</p>
+  </section>
+</section>
+<section class="detail" id="generate_user_session_token/1">
+
+  <div class="detail-header">
+    <a href="#generate_user_session_token/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">generate_user_session_token(user)</h1>
+
+      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account.ex#L119" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Generates a session token</p>
   </section>
 </section>
 <section class="detail" id="get_user!/1">
@@ -239,7 +303,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">get_user!(id)</h1>
 
-      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account.ex#L77" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account.ex#L79" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -255,10 +319,10 @@ Functions
   </a>
   Examples
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">get_user!</span><span class="p" data-group-id="4564407313-1">(</span><span class="mi">123</span><span class="p" data-group-id="4564407313-1">)</span><span class="w">
-</span><span class="p" data-group-id="4564407313-2">%</span><span class="nc" data-group-id="4564407313-2">User</span><span class="p" data-group-id="4564407313-2">{</span><span class="p" data-group-id="4564407313-2">}</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">get_user!</span><span class="p" data-group-id="5846896966-1">(</span><span class="mi">123</span><span class="p" data-group-id="5846896966-1">)</span><span class="w">
+</span><span class="p" data-group-id="5846896966-2">%</span><span class="nc" data-group-id="5846896966-2">User</span><span class="p" data-group-id="5846896966-2">{</span><span class="p" data-group-id="5846896966-2">}</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">get_user!</span><span class="p" data-group-id="4564407313-3">(</span><span class="mi">456</span><span class="p" data-group-id="4564407313-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">get_user!</span><span class="p" data-group-id="5846896966-3">(</span><span class="mi">456</span><span class="p" data-group-id="5846896966-3">)</span><span class="w">
 </span><span class="gt">** (Ecto.NoResultsError)</span></code></pre>
   </section>
 </section>
@@ -271,7 +335,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">get_user_by_email(email)</h1>
 
-      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account.ex#L25" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account.ex#L27" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -287,10 +351,10 @@ Functions
   </a>
   Examples
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">get_user_by_email</span><span class="p" data-group-id="2876243515-1">(</span><span class="s">&quot;foo@example.com&quot;</span><span class="p" data-group-id="2876243515-1">)</span><span class="w">
-</span><span class="p" data-group-id="2876243515-2">%</span><span class="nc" data-group-id="2876243515-2">User</span><span class="p" data-group-id="2876243515-2">{</span><span class="p" data-group-id="2876243515-2">}</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">get_user_by_email</span><span class="p" data-group-id="0200550847-1">(</span><span class="s">&quot;foo@example.com&quot;</span><span class="p" data-group-id="0200550847-1">)</span><span class="w">
+</span><span class="p" data-group-id="0200550847-2">%</span><span class="nc" data-group-id="0200550847-2">User</span><span class="p" data-group-id="0200550847-2">{</span><span class="p" data-group-id="0200550847-2">}</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">get_user_by_email</span><span class="p" data-group-id="2876243515-3">(</span><span class="s">&quot;unknown@example.com&quot;</span><span class="p" data-group-id="2876243515-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">get_user_by_email</span><span class="p" data-group-id="0200550847-3">(</span><span class="s">&quot;unknown@example.com&quot;</span><span class="p" data-group-id="0200550847-3">)</span><span class="w">
 </span><span class="no">nil</span></code></pre>
   </section>
 </section>
@@ -303,7 +367,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">get_user_by_username(username)</h1>
 
-      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account.ex#L41" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account.ex#L43" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -319,10 +383,10 @@ Functions
   </a>
   Examples
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">get_user_by_username</span><span class="p" data-group-id="3477209496-1">(</span><span class="s">&quot;foo&quot;</span><span class="p" data-group-id="3477209496-1">)</span><span class="w">
-</span><span class="p" data-group-id="3477209496-2">%</span><span class="nc" data-group-id="3477209496-2">User</span><span class="p" data-group-id="3477209496-2">{</span><span class="p" data-group-id="3477209496-2">}</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">get_user_by_username</span><span class="p" data-group-id="2434412084-1">(</span><span class="s">&quot;foo&quot;</span><span class="p" data-group-id="2434412084-1">)</span><span class="w">
+</span><span class="p" data-group-id="2434412084-2">%</span><span class="nc" data-group-id="2434412084-2">User</span><span class="p" data-group-id="2434412084-2">{</span><span class="p" data-group-id="2434412084-2">}</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">get_user_by_username</span><span class="p" data-group-id="3477209496-3">(</span><span class="s">&quot;unknown&quot;</span><span class="p" data-group-id="3477209496-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">get_user_by_username</span><span class="p" data-group-id="2434412084-3">(</span><span class="s">&quot;unknown&quot;</span><span class="p" data-group-id="2434412084-3">)</span><span class="w">
 </span><span class="no">nil</span></code></pre>
   </section>
 </section>
@@ -335,7 +399,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">get_user_by_username_and_password(username, password)</h1>
 
-      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account.ex#L57" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account.ex#L59" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -351,10 +415,10 @@ Functions
   </a>
   Examples
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">get_user_by_username_and_password</span><span class="p" data-group-id="8159503786-1">(</span><span class="s">&quot;foo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;correct_password&quot;</span><span class="p" data-group-id="8159503786-1">)</span><span class="w">
-</span><span class="p" data-group-id="8159503786-2">%</span><span class="nc" data-group-id="8159503786-2">User</span><span class="p" data-group-id="8159503786-2">{</span><span class="p" data-group-id="8159503786-2">}</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">get_user_by_username_and_password</span><span class="p" data-group-id="4732009700-1">(</span><span class="s">&quot;foo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;correct_password&quot;</span><span class="p" data-group-id="4732009700-1">)</span><span class="w">
+</span><span class="p" data-group-id="4732009700-2">%</span><span class="nc" data-group-id="4732009700-2">User</span><span class="p" data-group-id="4732009700-2">{</span><span class="p" data-group-id="4732009700-2">}</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">get_user_by_username_and_password</span><span class="p" data-group-id="8159503786-3">(</span><span class="s">&quot;foo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;invalid_password&quot;</span><span class="p" data-group-id="8159503786-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">get_user_by_username_and_password</span><span class="p" data-group-id="4732009700-3">(</span><span class="s">&quot;foo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;invalid_password&quot;</span><span class="p" data-group-id="4732009700-3">)</span><span class="w">
 </span><span class="no">nil</span></code></pre>
   </section>
 </section>
@@ -367,7 +431,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">register_user(attrs)</h1>
 
-      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account.ex#L93" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/emm218/lili/blob/main/lib/lili/account.ex#L95" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -383,11 +447,11 @@ Functions
   </a>
   Examples
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">register_user</span><span class="p" data-group-id="7491388562-1">(</span><span class="p" data-group-id="7491388562-2">%{</span><span class="ss">field</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="p" data-group-id="7491388562-2">}</span><span class="p" data-group-id="7491388562-1">)</span><span class="w">
-</span><span class="p" data-group-id="7491388562-3">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7491388562-4">%</span><span class="nc" data-group-id="7491388562-4">User</span><span class="p" data-group-id="7491388562-4">{</span><span class="p" data-group-id="7491388562-4">}</span><span class="p" data-group-id="7491388562-3">}</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">register_user</span><span class="p" data-group-id="1514957538-1">(</span><span class="p" data-group-id="1514957538-2">%{</span><span class="ss">field</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="p" data-group-id="1514957538-2">}</span><span class="p" data-group-id="1514957538-1">)</span><span class="w">
+</span><span class="p" data-group-id="1514957538-3">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1514957538-4">%</span><span class="nc" data-group-id="1514957538-4">User</span><span class="p" data-group-id="1514957538-4">{</span><span class="p" data-group-id="1514957538-4">}</span><span class="p" data-group-id="1514957538-3">}</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">register_user</span><span class="p" data-group-id="7491388562-5">(</span><span class="p" data-group-id="7491388562-6">%{</span><span class="ss">field</span><span class="p">:</span><span class="w"> </span><span class="n">bad_value</span><span class="p" data-group-id="7491388562-6">}</span><span class="p" data-group-id="7491388562-5">)</span><span class="w">
-</span><span class="p" data-group-id="7491388562-7">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7491388562-8">%</span><span class="nc" data-group-id="7491388562-8">Ecto.Changeset</span><span class="p" data-group-id="7491388562-8">{</span><span class="p" data-group-id="7491388562-8">}</span><span class="p" data-group-id="7491388562-7">}</span></code></pre>
+</span><span class="gp unselectable">iex&gt; </span><span class="n">register_user</span><span class="p" data-group-id="1514957538-5">(</span><span class="p" data-group-id="1514957538-6">%{</span><span class="ss">field</span><span class="p">:</span><span class="w"> </span><span class="n">bad_value</span><span class="p" data-group-id="1514957538-6">}</span><span class="p" data-group-id="1514957538-5">)</span><span class="w">
+</span><span class="p" data-group-id="1514957538-7">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1514957538-8">%</span><span class="nc" data-group-id="1514957538-8">Ecto.Changeset</span><span class="p" data-group-id="1514957538-8">{</span><span class="p" data-group-id="1514957538-8">}</span><span class="p" data-group-id="1514957538-7">}</span></code></pre>
   </section>
 </section>
 

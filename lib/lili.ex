@@ -1,4 +1,3 @@
 defmodule Lili do
-  @moduledoc """
-  """
+  @moduledoc false
 end

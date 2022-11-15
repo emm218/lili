@@ -1,9 +1,9 @@
 404.html
 Lili.Account.User.html
+Lili.Account.UserToken.html
 Lili.Account.html
 Lili.Mailer.html
 Lili.Repo.html
-Lili.html
 LiliWeb.Endpoint.html
 LiliWeb.ErrorHelpers.html
 LiliWeb.ErrorView.html
@@ -11,8 +11,11 @@ LiliWeb.Gettext.html
 LiliWeb.Router.Helpers.html
 LiliWeb.Router.html
 LiliWeb.Telemetry.html
+LiliWeb.UserAuth.html
 LiliWeb.UserController.html
-LiliWeb.html
+LiliWeb.UserSessionController.html
+LiliWeb.UserSessionView.html
+LiliWeb.UserView.html
 api-reference.html
 dist/handlebars.runtime-NWIB6V2M.js
 dist/handlebars.templates-X7YVL3G2.js
@@ -39,7 +42,7 @@ dist/merriweather-latin-ext-300-normal-K6L27CZ5.woff2
 dist/merriweather-vietnamese-300-italic-EHHNZPUO.woff2
 dist/merriweather-vietnamese-300-normal-U376L4Z4.woff2
 dist/remixicon-E5UFLALU.woff2
-dist/search_items-F6402B27.js
-dist/sidebar_items-0CB01DBD.js
+dist/search_items-7183E833.js
+dist/sidebar_items-38CE4E2D.js
 index.html
 search.html
