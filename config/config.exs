@@ -1,3 +1,5 @@
+# Copyright © 2022 Emmy Emmycelium <https://cybele.dev/>
+# SPDX-License-Identifier: AGPL-3.0-only
 # This file is responsible for configuring your application
 # and its dependencies with the aid of the Config module.
 #
