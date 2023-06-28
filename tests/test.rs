@@ -2,12 +2,10 @@
 async fn sanity_check() {
     spawn_app();
 
-    let body = reqwest::get("http://localhost:3000")
-        .await
-        .unwrap()
-        .text()
-        .await;
+    let response = reqwest::get("http://localhost:3000").await.unwrap();
+    assert!(response.status().is_success());
 
+    let body = response.text().await;
     assert_eq!(String::from("Hello, World!"), body.unwrap());
 }
 
