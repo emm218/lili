@@ -43,17 +43,9 @@ impl From<config::ConfigError> for LiliError {
 async fn main() -> Result<(), LiliError> {
     let cli = Cli::parse();
 
-    let mut config_builder = config::Config::builder();
+    let config = lili::configuration::get_configuration(cli.config)?;
 
-    //TODO: add fallback to config in config home
-    config_builder = match cli.config {
-        Some(path) => config_builder.add_source(config::File::from(path)),
-        None => config_builder.add_source(config::File::with_name("config")),
-    };
-
-    config_builder.build()?;
-
-    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
+    let addr = SocketAddr::from(([127, 0, 0, 1], config.app_port));
     lili::run(&addr)?.await?;
     Ok(())
 }
