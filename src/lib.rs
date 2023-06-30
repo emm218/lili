@@ -2,7 +2,7 @@ use axum::{routing::get, routing::IntoMakeService, Router};
 use hyper::server::conn::AddrIncoming;
 use sqlx::PgPool;
 use std::net::SocketAddr;
-use tower::ServiceBuilder;
+
 use tower_http::cors::{Any, CorsLayer};
 
 pub mod configuration;
