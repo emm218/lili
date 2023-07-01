@@ -3,13 +3,13 @@ use std::env;
 use std::path::PathBuf;
 use uuid::Uuid;
 
-#[derive(serde::Deserialize)]
+#[derive(Debug, serde::Deserialize)]
 pub struct Settings {
-    pub app_port: u16,
+    pub port: u16,
     pub database: DatabaseSettings,
 }
 
-#[derive(serde::Deserialize)]
+#[derive(Debug, serde::Deserialize)]
 pub struct DatabaseSettings {
     pub username: String,
     pub password: String,

@@ -17,7 +17,7 @@ async fn main() -> Result<(), lili::LiliError> {
     let config = lili::configuration::get_config(cli.config)?;
     let pool = PgPool::connect(&config.database.connection_string()).await?;
 
-    let addr = SocketAddr::from(([127, 0, 0, 1], config.app_port));
+    let addr = SocketAddr::from(([127, 0, 0, 1], config.port));
     lili::run(&addr, pool)?.await?;
     Ok(())
 }
