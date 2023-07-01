@@ -1,8 +1,8 @@
 use axum::{routing::get, routing::IntoMakeService, Router};
 use hyper::server::conn::AddrIncoming;
 use sqlx::PgPool;
+use std::env;
 use std::net::SocketAddr;
-
 use tower_http::cors::{Any, CorsLayer};
 
 pub mod configuration;
@@ -12,6 +12,7 @@ pub mod routes;
 pub enum LiliError {
     HyperError(hyper::Error),
     ConfigError(config::ConfigError),
+    VarError(env::VarError),
     SqlError(sqlx::Error),
 }
 
@@ -23,6 +24,7 @@ impl std::fmt::Display for LiliError {
             LiliError::HyperError(e) => e.fmt(f),
             LiliError::ConfigError(e) => e.fmt(f),
             LiliError::SqlError(e) => e.fmt(f),
+            LiliError::VarError(e) => e.fmt(f),
         }
     }
 }
@@ -42,6 +44,12 @@ impl From<config::ConfigError> for LiliError {
 impl From<sqlx::Error> for LiliError {
     fn from(e: sqlx::Error) -> LiliError {
         Self::SqlError(e)
+    }
+}
+
+impl From<env::VarError> for LiliError {
+    fn from(e: env::VarError) -> LiliError {
+        Self::VarError(e)
     }
 }
 

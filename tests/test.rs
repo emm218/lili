@@ -1,24 +1,40 @@
+use lili::configuration;
+use lili::configuration::Settings;
+use sqlx::PgPool;
 use std::net::SocketAddr;
+
+struct TestApp {
+    pub url: String,
+    pub db_pool: PgPool,
+}
 
 #[tokio::test]
 async fn sanity_check() {
     let addr = SocketAddr::from(([127, 0, 0, 1], 0));
+    let settings = configuration::get_test_config().expect("failed to read test config");
 
-    let url = spawn_app(&addr);
+    let app = spawn_test_app(&addr, settings).await;
 
-    let response = reqwest::get(url).await.unwrap();
+    let response = reqwest::get(app.url).await.unwrap();
     assert!(response.status().is_success());
 
     let body = response.text().await;
     assert_eq!(String::from("Hello, World!"), body.unwrap());
 }
 
-fn spawn_app(addr: &SocketAddr) -> String {
-    let server = lili::run(addr).expect("failed to bind address");
+async fn spawn_test_app(addr: &SocketAddr, settings: Settings) -> TestApp {
+    let db_pool = PgPool::connect(&settings.database.connection_string_no_db())
+        .await
+        .expect("failed to connect to db");
+
+    let server = lili::run(addr, db_pool.clone()).expect("failed to bind address");
 
     let local_addr = server.local_addr();
 
     tokio::spawn(server);
 
-    format!("http://{}", local_addr)
+    TestApp {
+        url: format!("http://{}", local_addr),
+        db_pool,
+    }
 }
