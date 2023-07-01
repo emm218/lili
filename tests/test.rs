@@ -1,6 +1,6 @@
 use lili::configuration;
-use lili::configuration::Settings;
-use sqlx::PgPool;
+use lili::configuration::{DatabaseSettings, Settings};
+use sqlx::{Connection, Executor, PgConnection, PgPool};
 use std::net::SocketAddr;
 
 struct TestApp {
@@ -22,10 +22,24 @@ async fn sanity_check() {
     assert_eq!(String::from("Hello, World!"), body.unwrap());
 }
 
+async fn configure_database(config: &DatabaseSettings) -> Result<PgPool, sqlx::Error> {
+    let mut connection = PgConnection::connect(&config.connection_string_no_db()).await?;
+
+    connection
+        .execute(format!(r#"CREATE DATABASE "{}";"#, config.name).as_str())
+        .await?;
+
+    let db_pool = PgPool::connect(&config.connection_string()).await?;
+
+    sqlx::migrate!("./migrations").run(&db_pool).await?;
+
+    Ok(db_pool)
+}
+
 async fn spawn_test_app(addr: &SocketAddr, settings: Settings) -> TestApp {
-    let db_pool = PgPool::connect(&settings.database.connection_string_no_db())
+    let db_pool = configure_database(&settings.database)
         .await
-        .expect("failed to connect to db");
+        .expect("failed to configure database");
 
     let server = lili::run(addr, db_pool.clone()).expect("failed to bind address");
 

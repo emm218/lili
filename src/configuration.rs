@@ -36,6 +36,7 @@ impl DatabaseSettings {
 
 pub fn get_test_config() -> Result<Settings, config::ConfigError> {
     let config_builder = config::Config::builder()
+        .add_source(config::File::with_name("config").required(false))
         .add_source(config::Environment::with_prefix("LILI"))
         .set_override("database.name", Uuid::new_v4().to_string())?;
 
