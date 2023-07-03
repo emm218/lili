@@ -62,14 +62,15 @@ async fn get_stored_credentials(
     username: &str,
     pool: &PgPool,
 ) -> Result<Option<(Uuid, Secret<String>)>, sqlx::Error> {
-    let row: Option<_> = sqlx::query!(
-        r#"SELECT user_id, password_hash FROM users WHERE username = $1"#,
-        credentials.username
-    )
-    .fetch_optional(pool)
-    .await?
-    .map(|row| (row.user_id, Secret::new(row.password_hash)));
-    Ok(row)
+    // let row: Option<_> = sqlx::query!(
+    //     r#"SELECT user_id, password_hash FROM users WHERE username = $1"#,
+    //     credentials.username
+    // )
+    // .fetch_optional(pool)
+    // .await?
+    // .map(|row| (row.user_id, Secret::new(row.password_hash)));
+    // Ok(row)
+    Ok(None)
 }
 
 fn verify_password_hash(
