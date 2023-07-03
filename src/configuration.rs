@@ -1,4 +1,4 @@
-use crate::LiliError;
+use anyhow::Context;
 use secrecy::{ExposeSecret, Secret};
 use std::env;
 use std::path::PathBuf;
@@ -8,6 +8,8 @@ use uuid::Uuid;
 pub struct Settings {
     pub port: u16,
     pub database: DatabaseSettings,
+    pub session_store_uri: Option<Secret<String>>,
+    pub session_secret: Secret<String>,
 }
 
 #[derive(Debug, serde::Deserialize)]
@@ -46,15 +48,19 @@ pub fn get_test_config() -> Result<Settings, config::ConfigError> {
     let config_builder = config::Config::builder()
         .add_source(config::File::with_name("config").required(false))
         .add_source(config::Environment::with_prefix("LILI"))
-        .set_override("database.name", Uuid::new_v4().to_string())?;
+        .set_override("database.name", Uuid::new_v4().to_string())?
+        .set_override("session_secret", Uuid::new_v4().to_string())?;
 
     config_builder.build()?.try_deserialize()
 }
 
-pub fn get_config(config_path: Option<PathBuf>) -> Result<Settings, LiliError> {
+pub fn get_config(config_path: Option<PathBuf>) -> Result<Settings, anyhow::Error> {
     let config_home = match env::var("XDG_CONFIG_HOME") {
         Ok(val) => val,
-        Err(_) => format!("{}/.config", env::var("HOME")?),
+        Err(_) => format!(
+            "{}/.config",
+            env::var("HOME").context("failed to read HOME environment variable")?
+        ),
     };
     let config_file = format!("{}/lili/config", config_home);
     let mut config_builder = config::Config::builder();

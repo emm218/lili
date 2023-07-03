@@ -19,7 +19,9 @@ name="lili"
 [dependencies]
 anyhow = { version = "1.0.71", features = ["backtrace"] }
 argon2 = { version = "0.5.0", features = ["std"] }
+async-redis-session = "0.2.2"
 axum = { version = "0.6.18", features = ["http2"] }
+axum-sessions = "0.5.0"
 clap = { version = "4.3.9", features = ["derive"] }
 config = "0.13.3"
 hyper = { version = "0.14.27", features = ["http1", "http2", "tcp", "server"] }

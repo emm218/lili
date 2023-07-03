@@ -1,3 +1,4 @@
+use axum_sessions::async_session::MemoryStore;
 use lili::configuration;
 use lili::configuration::{DatabaseSettings, Settings};
 use sqlx::{Connection, Executor, PgConnection, PgPool};
@@ -41,7 +42,13 @@ async fn spawn_test_app(addr: &SocketAddr, settings: Settings) -> TestApp {
         .await
         .expect("failed to configure database");
 
-    let server = lili::run(addr, db_pool.clone()).expect("failed to bind address");
+    let server = lili::run(
+        addr,
+        db_pool.clone(),
+        MemoryStore::new(),
+        settings.session_secret,
+    )
+    .expect("failed to bind address");
 
     let local_addr = server.local_addr();
 
