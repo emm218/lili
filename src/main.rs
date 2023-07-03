@@ -11,7 +11,7 @@ struct Cli {
 }
 
 #[tokio::main]
-async fn main() -> Result<(), lili::LiliError> {
+async fn main() -> Result<(), anyhow::Error> {
     let cli = Cli::parse();
 
     let config = lili::configuration::get_config(cli.config)?;

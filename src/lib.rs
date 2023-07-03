@@ -5,53 +5,10 @@ use std::env;
 use std::net::SocketAddr;
 use tower_http::cors::{Any, CorsLayer};
 
+pub mod authentication;
 pub mod configuration;
+pub mod logging;
 pub mod routes;
-
-#[derive(Debug)]
-pub enum LiliError {
-    HyperError(hyper::Error),
-    ConfigError(config::ConfigError),
-    VarError(env::VarError),
-    SqlError(sqlx::Error),
-}
-
-impl std::error::Error for LiliError {}
-
-impl std::fmt::Display for LiliError {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        match self {
-            LiliError::HyperError(e) => e.fmt(f),
-            LiliError::ConfigError(e) => e.fmt(f),
-            LiliError::SqlError(e) => e.fmt(f),
-            LiliError::VarError(e) => e.fmt(f),
-        }
-    }
-}
-
-impl From<hyper::Error> for LiliError {
-    fn from(e: hyper::Error) -> LiliError {
-        Self::HyperError(e)
-    }
-}
-
-impl From<config::ConfigError> for LiliError {
-    fn from(e: config::ConfigError) -> LiliError {
-        Self::ConfigError(e)
-    }
-}
-
-impl From<sqlx::Error> for LiliError {
-    fn from(e: sqlx::Error) -> LiliError {
-        Self::SqlError(e)
-    }
-}
-
-impl From<env::VarError> for LiliError {
-    fn from(e: env::VarError) -> LiliError {
-        Self::VarError(e)
-    }
-}
 
 pub fn run(
     addr: &SocketAddr,
