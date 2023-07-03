@@ -1,4 +1,5 @@
 use crate::LiliError;
+use secrecy::{ExposeSecret, Secret};
 use std::env;
 use std::path::PathBuf;
 use uuid::Uuid;
@@ -12,7 +13,7 @@ pub struct Settings {
 #[derive(Debug, serde::Deserialize)]
 pub struct DatabaseSettings {
     pub username: String,
-    pub password: String,
+    pub password: Secret<String>,
     pub port: u16,
     pub host: String,
     pub name: String,
@@ -22,14 +23,21 @@ impl DatabaseSettings {
     pub fn connection_string(&self) -> String {
         format!(
             "postgres://{}:{}@{}:{}/{}",
-            self.username, self.password, self.host, self.port, self.name
+            self.username,
+            self.password.expose_secret(),
+            self.host,
+            self.port,
+            self.name
         )
     }
 
     pub fn connection_string_no_db(&self) -> String {
         format!(
             "postgres://{}:{}@{}:{}",
-            self.username, self.password, self.host, self.port
+            self.username,
+            self.password.expose_secret(),
+            self.host,
+            self.port
         )
     }
 }
