@@ -31,7 +31,7 @@ async fn configure_database(config: &DatabaseSettings) -> Result<PgPool, sqlx::E
 
     let db_pool = PgPool::connect(&config.connection_string()).await?;
 
-    sqlx::migrate!("./migrations").run(&db_pool).await?;
+    sqlx::migrate!().run(&db_pool).await?;
 
     Ok(db_pool)
 }
